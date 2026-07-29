@@ -18,7 +18,6 @@ package io.serverlessworkflow.validation.test;
 import static io.serverlessworkflow.api.states.DefaultState.Type.OPERATION;
 import static io.serverlessworkflow.api.states.DefaultState.Type.SLEEP;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.serverlessworkflow.api.Workflow;
 import io.serverlessworkflow.api.actions.Action;
 import io.serverlessworkflow.api.end.End;
@@ -45,6 +44,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.ObjectMapper;
 
 public class WorkflowValidationTest {
 
@@ -127,7 +127,7 @@ public class WorkflowValidationTest {
     Assertions.assertEquals(1, validationErrors.size());
 
     Assertions.assertEquals(
-        "$: required property 'id' not found", validationErrors.get(0).getMessage());
+        "required property 'id' not found", validationErrors.get(0).getMessage());
   }
 
   @Test
